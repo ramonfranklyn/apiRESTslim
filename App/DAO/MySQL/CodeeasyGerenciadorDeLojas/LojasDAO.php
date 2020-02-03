@@ -10,16 +10,17 @@
 
         }
 
-        public function teste(){
+        public function getAllLojas(): array{
             
             $lojas = $this->pdo
-                ->query('SELECT * FROM lojas;')
+                ->query('SELECT 
+                    id,
+                    nome,
+                    telefone,
+                    endereco
+                FROM lojas;')
                 ->fetchAll(\PDO::FETCH_ASSOC);
 
-            echo "<pre>";
-            foreach($lojas as $loja){
-                var_dump($loja);
-            }
-            die;
+            return $lojas;
         }
     }

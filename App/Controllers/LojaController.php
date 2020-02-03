@@ -4,15 +4,16 @@
 
     use Psr\Http\Message\ServerRequestInterface as Request;
     use Psr\Http\Message\ResponseInterface as Response;
+    use App\DAO\MySQL\CodeeasyGerenciadorDeLojas\LojasDAO;
     
 
     final class LojaController{
         
         public function getLojas(Request $request, Response $response, array $args): Response{
            
-            $response = $response->withJson([
-                'message' => 'Hello World!'
-            ]);
+            $lojasDAO = new LojasDAO();
+            $lojas = $lojasDAO->getAllLojas();
+            $response = $response->withJson($lojas);
             
             return $response;
 

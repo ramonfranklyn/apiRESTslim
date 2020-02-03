@@ -4,12 +4,17 @@
 
     use Psr\Http\Message\ServerRequestInterface as Request;
     use Psr\Http\Message\ResponseInterface as Response;
+    use App\DAO\MySQL\CodeeasyGerenciadorDeLojas\ProdutosDAO;
     
 
     final class ProdutoController{
         
         public function getProdutos(Request $request, Response $response, array $args): Response{
            
+            $response = $response->withJson([
+                'message' => 'Hello World!'
+            ]);
+
             return $response;
 
         }

@@ -17,7 +17,7 @@
     $app->get('/produtos', ProdutoController::class . ':getProdutos');
     $app->post('/produtos', ProdutoController::class . ':insertProdutos');
     $app->put('/produtos', ProdutoController::class . ':updateProdutos');
-    $app->delete('/produtos', ProdutoController::class . ':delete');
+    $app->delete('/produtos', ProdutoController::class . ':deleteProdutos');
 
     
 
