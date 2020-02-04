@@ -11,9 +11,9 @@
         
         public function getProdutos(Request $request, Response $response, array $args): Response{
            
-            $response = $response->withJson([
-                'message' => 'Hello World!'
-            ]);
+            $produtosDAO = new ProdutosDAO();
+            $produtos = $produtosDAO->getAllProdutos();
+            $response = $response->withJson($produtos);
 
             return $response;
 
